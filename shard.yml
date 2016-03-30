@@ -1,0 +1,12 @@
+name: BoboBot
+version: 0.1.0
+
+authors:
+  - Indra 'Sonny' Wicaksono
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+    version: 0.11.2
