@@ -13,8 +13,11 @@ module BoboBot
     end
 
     def respond
-      cp = BoboBot::CommandParser.new @message
-      BoboBot::CommandResponder.new(cp.command, cp.message).hipchat_json
+      BoboBot::MessageParser
+        .new(@message)
+        .command_from_message
+        .respond_to @message
+        .to_json
     end
   end
 end

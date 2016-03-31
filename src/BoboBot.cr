@@ -1,10 +1,13 @@
 require "./bobo_bot/*"
+require "./bobo_bot/commands/*"
 
 require "kemal"
 
+# HTTP リクエストを投げて JSON を取得する
+
+
 get "/" do |env|
-  env.response.content_type = "application/json"
-  {bobo: "bobo"}.to_json
+  {bobo: "ok"}.to_json
 end
 
 post "/room_message" do |env|
