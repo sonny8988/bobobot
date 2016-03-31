@@ -1,22 +1,19 @@
 # BoboBot
 
-TODO: Write a description here
+Hipchat bot for lunch
 
 ## Installation
 
-
-TODO: Write installation instructions here
+1. Install crystal
+2. Install Shards
+3. Compile
+4. Run
+5. Each Lunch
 
 
 ## Usage
+Connect hipchat webhool to the /room_message end point
 
-
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
@@ -28,4 +25,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Indra Wicaksono - creator, maintainer
+- [sonny8988](https://github.com/sonny8988) Indra Wicaksono - creator, maintainer
