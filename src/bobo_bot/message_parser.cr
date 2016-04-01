@@ -13,7 +13,11 @@ module BoboBot
       default = commands.values.find { |c| c.command == "default" } as Commands::BaseCommand
       return default unless split.size > 1
       command = split[1].downcase
-      commands[command] || default
+      begin
+        commands[command] || default
+      rescue
+        default
+      end
     end
   end
 end
