@@ -1,20 +1,19 @@
-<strong>9F</strong><br/>
+<strong style="font-size: 18px;">9</strong><br/>
 <% @Flr9.each do |data| %>
   <a href="<%= data.imageURL %>"">
     <img src="<%= data.imageURL %>" style="height:80px;"></img>
-  </a>
+  </a><br/>
   <b><%= data.title %></b><br/>
+  <b>Calories: <%= data.calories %></b><br/><br/>
 <% end %>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<strong>22</strong><br/>
+<strong style="font-size: 18px;">22</strong><br/>
 <% @Flr22.each do |data| %>
   <a href="<%= data.imageURL %>"">
     <img src="<%= data.imageURL %>" style="height:80px;"></img>
-  </a>
+  </a><br/>
   <b><%= data.title %></b><br/>
+  <b>Calories: <%= data.calories %></b><br/><br/>
 <% end %>
 

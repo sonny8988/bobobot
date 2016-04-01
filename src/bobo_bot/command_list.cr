@@ -5,8 +5,10 @@ module BoboBot
     def initialize
       default = Commands::Default.new # First
       lunch = Commands::Lunch.new
+      dinner = Commands::Dinner.new
       @hash = {
         lunch.command => lunch,
+        dinner.command => dinner,
         default.command => default
       }
     end

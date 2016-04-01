@@ -25,6 +25,8 @@ module Poop
       cafeteriaId: String,
       imageURL: String,
       title: String,
+      mealTime: Int32,
+      calories: Int32
     })
   end
 end

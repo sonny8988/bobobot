@@ -2,13 +2,13 @@ require "ecr/macros"
 module BoboBot
   # Lunch  Response
   module Commands
-    class Lunch < BaseCommand
+    class Dinner < BaseCommand
       def initialize
-        @command = "lunch"
+        @command = "dinner"
 	time = (Time.utc_now + 9.hours).to_s("%Y%m%d") # Tokyo time
         @lunch_response = ::LunchApi.get_data(time)
-        @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 }
-        @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 }
+        @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 2 }
+        @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 2 }
       end
 
       def json
