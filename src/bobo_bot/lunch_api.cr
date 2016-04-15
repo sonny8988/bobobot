@@ -26,7 +26,21 @@ module Poop
       imageURL: String,
       title: String,
       mealTime: Int32,
-      calories: Int32
+      calories: Int32,
+      umaiCount: Int32,
+      ingredients: Ingredients
+    })
+  end
+
+  class Ingredients
+    JSON.mapping({
+      alcohol: Boolean,
+      beef: Boolean,
+      chicken: Boolean,
+      fish: Boolean,
+      mutton: Boolean,
+      pork: Boolean,
+      healthy: Boolean
     })
   end
 end
