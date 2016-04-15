@@ -34,13 +34,13 @@ module Poop
 
   class Ingredients
     JSON.mapping({
-      alcohol: Boolean,
-      beef: Boolean,
-      chicken: Boolean,
-      fish: Boolean,
-      mutton: Boolean,
-      pork: Boolean,
-      healthy: Boolean
+      alcohol: Bool,
+      beef: Bool,
+      chicken: Bool,
+      fish: Bool,
+      mutton: Bool,
+      pork: Bool,
+      healthy: Bool
     })
   end
 end

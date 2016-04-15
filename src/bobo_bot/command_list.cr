@@ -3,18 +3,12 @@ module BoboBot
   class CommandList
 
     def initialize
-      default = Commands::Default.new # First
+      default = Commands::Default.new
       lunch = Commands::Lunch.new
-      bestlunch = Commands::BestLunch.new
-      ankitlunch = Commands::AnkitLunch.new
-      vegilunch = Commands::VegiLunch.new
       dinner = Commands::Dinner.new
       slap = Commands::Slap.new
       @hash = {
         lunch.command =>        lunch,
-        bestlunch.command =>    bestlunch,
-        ankitlunch.command =>   ankitlunch,
-        vegilunch.command =>    vegilunch,
         dinner.command =>       dinner,
         slap.command =>         slap,
         default.command =>      default

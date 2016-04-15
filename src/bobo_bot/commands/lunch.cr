@@ -25,6 +25,73 @@ module BoboBot
         ECR.embed "src/bobo_bot/commands/lunch.ecr", io
         io.to_s
       end
+
+
+      def respond_to(full_message)
+        option = begin
+                   full_message.gsub("\"", "").split[2]
+                 rescue
+                   ""
+                 end
+        puts option
+        load_ankit_meals  if option.downcase == "ankit"
+        load_vegi_meals   if option.downcase == "vegi"
+        load_best_meals   if option.downcase == "best"
+        puts "bobo"
+
+        json
+      end
+
+      private def load_regular_meals
+        @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 }
+        @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 }
+      end
+
+      private def load_ankit_meals
+        puts "ankit"
+        @Flr9 = @lunch_response.data.select do |d|
+          d.cafeteriaId == "9F" &&
+          !d.ingredients.beef &&
+          !d.ingredients.fish &&
+          !d.ingredients.mutton &&
+          !d.ingredients.pork &&
+          d.ingredients.chicken
+        end
+        @Flr22 = @lunch_response.data.select do |d|
+          d.cafeteriaId == "22F" &&
+          !d.ingredients.beef &&
+          !d.ingredients.fish &&
+          !d.ingredients.mutton &&
+          !d.ingredients.pork &&
+          d.ingredients.chicken
+        end
+      end
+
+      private def load_vegi_meals
+        puts "vegge"
+        @Flr9 = @lunch_response.data.select do |d|
+          d.cafeteriaId == "9F" &&
+          !d.ingredients.beef &&
+          !d.ingredients.fish &&
+          !d.ingredients.mutton &&
+          !d.ingredients.pork &&
+          !d.ingredients.chicken
+        end
+        @Flr22 = @lunch_response.data.select do |d|
+          d.cafeteriaId == "22F" &&
+          !d.ingredients.beef &&
+          !d.ingredients.fish &&
+          !d.ingredients.mutton &&
+          !d.ingredients.pork &&
+          !d.ingredients.chicken
+        end
+      end
+
+      private def load_best_meals
+        puts "best"
+        @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 && d.umaiCount > 0 }
+        @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 && d.umaiCount > 0 }
+      end
     end
   end
 end
