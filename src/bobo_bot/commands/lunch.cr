@@ -33,11 +33,9 @@ module BoboBot
                  rescue
                    ""
                  end
-        puts option
         load_ankit_meals  if option.downcase == "ankit"
         load_vegi_meals   if option.downcase == "vegi"
         load_best_meals   if option.downcase == "best"
-        puts "bobo"
 
         json
       end
@@ -48,7 +46,6 @@ module BoboBot
       end
 
       private def load_ankit_meals
-        puts "ankit"
         @Flr9 = @lunch_response.data.select do |d|
           d.cafeteriaId == "9F" &&
           !d.ingredients.beef &&
@@ -68,7 +65,6 @@ module BoboBot
       end
 
       private def load_vegi_meals
-        puts "vegge"
         @Flr9 = @lunch_response.data.select do |d|
           d.cafeteriaId == "9F" &&
           !d.ingredients.beef &&
@@ -88,7 +84,6 @@ module BoboBot
       end
 
       private def load_best_meals
-        puts "best"
         @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 && d.umaiCount > 0 }
         @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 && d.umaiCount > 0 }
       end
