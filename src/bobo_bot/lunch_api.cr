@@ -26,7 +26,7 @@ module Poop
       imageURL: String,
       title: String,
       mealTime: Int32,
-	  menuType: String,
+      menuType: String,
       calories: Int32,
       umaiCount: Int32,
       ingredients: Ingredients
