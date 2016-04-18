@@ -1,19 +1,35 @@
-<strong style="font-size: 18px;">9</strong><br/>
-<% @Flr9.each do |data| %>
-  <a href="<%= data.imageURL %>"">
-    <img src="<%= data.imageURL %>" style="height:80px;"></img>
-  </a><br/>
-  <b><%= data.title %></b><br/>
-  <b>Calories: <%= data.calories %></b><br/><br/>
-<% end %>
-<br/>
-<br/>
-<strong style="font-size: 18px;">22</strong><br/>
-<% @Flr22.each do |data| %>
-  <a href="<%= data.imageURL %>"">
-    <img src="<%= data.imageURL %>" style="height:80px;"></img>
-  </a><br/>
-  <b><%= data.title %></b><br/>
-  <b>Calories: <%= data.calories %></b><br/><br/>
-<% end %>
-
+<h1><%= @currentFloorName %></h1>
+<table style="border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px;">Image</th>
+        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px;">Title</th>
+        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px;">Calories</th>
+        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px;">Umai</th>
+        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px;">Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @currentFloorLunch.each do |data| %>
+      <tr>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;">
+          <a href="<%= data.imageURL %>">
+            <img src="<%= data.imageURL %>" style="height:80px;"/>
+          </a>
+        </td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.title %></td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.calories %></td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.umaiCount %></td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px; width: 150px">
+          <%= data.ingredients.alcohol ? 'alcohol, ' : '' %>
+          <%= data.ingredients.beef ? 'beef, ' : '' %>
+          <%= data.ingredients.chicken ? 'chicken, ' : '' %>
+          <%= data.ingredients.fish ? 'fish, ' : '' %>
+          <%= data.ingredients.pork ? 'pork, ' : '' %>
+          <%= data.ingredients.mutton ? 'mutton, ' : '' %>
+          <%= data.ingredients.healthy ? 'healthy' : '' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>

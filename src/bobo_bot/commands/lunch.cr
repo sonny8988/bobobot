@@ -22,7 +22,12 @@ module BoboBot
 
       def html
         io = MemoryIO.new
+		@currentFloorLunch = @Flr9
+		@currentFloorName = '9F'
         ECR.embed "src/bobo_bot/commands/lunch.ecr", io
+		@currentFloorLunch = @Flr22
+		@currentFloorName = '22F'
+		ECR.embed "src/bobo_bot/commands/lunch.ecr", io
         io.to_s
       end
 
