@@ -5,10 +5,12 @@ module BoboBot
     class Dinner < BaseCommand
       def initialize
         @command = "dinner"
-	time = (Time.utc_now + 9.hours).to_s("%Y%m%d") # Tokyo time
+        time = (Time.utc_now + 9.hours).to_s("%Y%m%d") # Tokyo time
         @lunch_response = ::LunchApi.get_data(time)
         @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 2 }
         @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 2 }
+        @CurrentFloorLunch = @Flr9
+        @CurrentFloorName = "9F"
       end
 
       def json
@@ -21,7 +23,10 @@ module BoboBot
       end
 
       def html
-        io = MemoryIO.new
+        io = MemoryIO.new        
+        ECR.embed "src/bobo_bot/commands/lunch.ecr", io
+        @CurrentFloorLunch = @Flr22
+        @CurrentFloorName = "22F"
         ECR.embed "src/bobo_bot/commands/lunch.ecr", io
         io.to_s
       end

@@ -9,6 +9,8 @@ module BoboBot
         @lunch_response = ::LunchApi.get_data(time)
         @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 }
         @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 }
+        @CurrentFloorLunch = @Flr9
+        @CurrentFloorName = "9F"
       end
 
       def json
@@ -22,12 +24,10 @@ module BoboBot
 
       def html
         io = MemoryIO.new
-		@currentFloorLunch = @Flr9
-		@currentFloorName = '9F'
         ECR.embed "src/bobo_bot/commands/lunch.ecr", io
-		@currentFloorLunch = @Flr22
-		@currentFloorName = '22F'
-		ECR.embed "src/bobo_bot/commands/lunch.ecr", io
+		    @CurrentFloorLunch = @Flr22
+		    @CurrentFloorName = "22F"
+		    ECR.embed "src/bobo_bot/commands/lunch.ecr", io
         io.to_s
       end
 
