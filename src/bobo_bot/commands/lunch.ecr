@@ -1,28 +1,28 @@
-<strong style="font-size:28px; display:block; width: 60%; border-bottom: 1px solid gray; margin-bottom:20px"><%= @CurrentFloorName %></strong>
-<table style="border-collapse: collapse;">
+<strong ><%= @CurrentFloorName %></strong>
+<table >
     <thead>
       <tr>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Image</th>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Title</th>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Calories</th>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Section</th>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Umai</th>
-        <th style="border-bottom: 1px solid #ddd; padding: 2px 10px; text-align: left">Ingredients</th>
+        <th >Image</th>
+        <th >Title</th>
+        <th >Calories</th>
+        <th >Section</th>
+        <th >Umai</th>
+        <th >Ingredients</th>
       </tr>
     </thead>
     <tbody>
     <% @CurrentFloorLunch.each do |data| %>
       <tr>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;">
+        <td >
           <a href="<%= data.imageURL %>">
-            <img src="<%= data.imageURL %>" style="height:80px;"/>
+            <img src="<%= data.imageURL %>" />
           </a>
         </td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.title %> | </td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.calories %> | </td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.menuType %> |</td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.umaiCount %> |</td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px; width: 150px">
+        <td ><%= data.title %> | </td>
+        <td ><%= data.calories %> | </td>
+        <td ><%= data.menuType %> |</td>
+        <td ><%= data.umaiCount %> |</td>
+        <td >
           <%= data.ingredients.alcohol ? "alcohol, " : "" %>
           <%= data.ingredients.beef ? "beef, " : "" %>
           <%= data.ingredients.chicken ? "chicken, " : "" %>
