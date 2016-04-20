@@ -1,28 +1,28 @@
-<strong ><%= @CurrentFloorName %></strong>
-<table >
+<strong><%= @CurrentFloorName %></strong>
+<table>
     <thead>
       <tr>
-        <th >Image</th>
-        <th >Title</th>
-        <th >Calories</th>
-        <th >Section</th>
-        <th >Umai</th>
-        <th >Ingredients</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Calories</th>
+        <th>Section</th>
+        <th>Umai</th>
+        <th>Ingredients</th>
       </tr>
     </thead>
     <tbody>
     <% @CurrentFloorLunch.each do |data| %>
       <tr>
-        <td >
+        <td>
           <a href="<%= data.imageURL %>">
-            <img src="<%= data.imageURL %>" />
+            <img src="<%= data.imageURL %>" style="height:80px;" />
           </a>
         </td>
-        <td ><%= data.title %> | </td>
-        <td ><%= data.calories %> | </td>
-        <td ><%= data.menuType %> |</td>
-        <td ><%= data.umaiCount %> |</td>
-        <td >
+        <td><%= data.title %> | </td>
+        <td><%= data.calories %> | </td>
+        <td><%= data.menuType %> |</td>
+        <td><%= data.umaiCount %> |</td>
+        <td>
           <%= data.ingredients.alcohol ? "alcohol, " : "" %>
           <%= data.ingredients.beef ? "beef, " : "" %>
           <%= data.ingredients.chicken ? "chicken, " : "" %>
