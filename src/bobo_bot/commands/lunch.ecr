@@ -18,10 +18,10 @@
             <img src="<%= data.imageURL %>" style="height:80px;"/>
           </a>
         </td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.title %></td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.calories %></td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.menuType %></td>
-        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.umaiCount %></td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.title %> | </td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.calories %> | </td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.menuType %> |</td>
+        <td style="border-bottom: 1px solid #ddd; padding: 2px 10px;"><%= data.umaiCount %> |</td>
         <td style="border-bottom: 1px solid #ddd; padding: 2px 10px; width: 150px">
           <%= data.ingredients.alcohol ? "alcohol, " : "" %>
           <%= data.ingredients.beef ? "beef, " : "" %>
@@ -30,6 +30,7 @@
           <%= data.ingredients.pork ? "pork, " : "" %>
           <%= data.ingredients.mutton ? "mutton, " : "" %>
           <%= data.ingredients.healthy ? "healthy" : "" %>
+		  |
         </td>
       </tr>
     <% end %>
