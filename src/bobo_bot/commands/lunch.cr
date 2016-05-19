@@ -3,14 +3,14 @@ module BoboBot
   # Lunch  Response
   module Commands
     class Lunch < BaseCommand
-      def initialize        
+      def initialize
         @command = "lunch"
         time = (Time.utc_now + 9.hours).to_s("%Y%m%d") # Tokyo time
         @lunch_response = ::LunchApi.get_data(time)
         @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 }
         @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 }
         @CurrentFloorLunch = @Flr9
-        @CurrentFloorName = "9F"        
+        @CurrentFloorName = "9F"
       end
 
       def json
@@ -47,11 +47,6 @@ module BoboBot
         json
       end
 
-      private def load_regular_meals
-        @Flr9 = @lunch_response.data.select { |d| d.cafeteriaId == "9F" && d.mealTime == 1 }
-        @Flr22 = @lunch_response.data.select { |d| d.cafeteriaId == "22F" && d.mealTime == 1 }
-      end
-
       private def load_ankit_meals
         @Flr9 = @lunch_response.data.select do |d|
           d.cafeteriaId == "9F" &&
@@ -59,7 +54,8 @@ module BoboBot
           !d.ingredients.fish &&
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
-          d.ingredients.chicken
+          d.ingredients.chicken &&
+          d.mealTime == 1
         end
         @Flr22 = @lunch_response.data.select do |d|
           d.cafeteriaId == "22F" &&
@@ -67,7 +63,8 @@ module BoboBot
           !d.ingredients.fish &&
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
-          d.ingredients.chicken
+          d.ingredients.chicken &&
+          d.mealTime == 1
         end
       end
 
@@ -78,7 +75,8 @@ module BoboBot
           !d.ingredients.fish &&
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
-          !d.ingredients.chicken
+          !d.ingredients.chicken &&
+          d.mealTime == 1
         end
         @Flr22 = @lunch_response.data.select do |d|
           d.cafeteriaId == "22F" &&
@@ -86,7 +84,8 @@ module BoboBot
           !d.ingredients.fish &&
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
-          !d.ingredients.chicken
+          !d.ingredients.chicken &&
+          d.mealTime == 1
         end
       end
 
