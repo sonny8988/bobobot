@@ -55,7 +55,7 @@ module BoboBot
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
           d.ingredients.chicken &&
-		  d.mealTime == 1
+          d.mealTime == 1
         end
         @Flr22 = @lunch_response.data.select do |d|
           d.cafeteriaId == "22F" &&
@@ -64,7 +64,7 @@ module BoboBot
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
           d.ingredients.chicken &&
-		  d.mealTime == 1
+          d.mealTime == 1
         end
       end
 
@@ -76,7 +76,7 @@ module BoboBot
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
           !d.ingredients.chicken &&
-		  d.mealTime == 1
+          d.mealTime == 1
         end
         @Flr22 = @lunch_response.data.select do |d|
           d.cafeteriaId == "22F" &&
@@ -85,7 +85,7 @@ module BoboBot
           !d.ingredients.mutton &&
           !d.ingredients.pork &&
           !d.ingredients.chicken &&
-		  d.mealTime == 1
+          d.mealTime == 1
         end
       end
 
