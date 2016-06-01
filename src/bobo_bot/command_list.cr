@@ -9,6 +9,7 @@ module BoboBot
       slap = Commands::Slap.new
       @hash = {
         lunch.command =>        lunch,
+        "runch" =>              lunch,
         dinner.command =>       dinner,
         slap.command =>         slap,
         default.command =>      default
