@@ -1,6 +1,6 @@
 # BoboBot
 
-Hipchat bot for lunch
+HipChat bot for lunch
 
 ## Installation
 
@@ -8,11 +8,11 @@ Hipchat bot for lunch
 2. Install Shards
 3. Compile
 4. Run
-5. Each Lunch
+5. Eat Lunch
 
 
 ## Usage
-Connect hipchat webhool to the /room_message end point
+Connect HipChat webhook to the /room_message end point
 
 
 ## Contributing
